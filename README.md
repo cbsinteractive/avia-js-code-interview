@@ -8,6 +8,7 @@ The following tasks are meant to be completed in a reasonable amount of time. Th
     - https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
     
 1. Using react, render each item in a HTML list in ascending order of bandwidth. Display the following properties for each item:
+    - url
     - program id
     - name
     - resolution
