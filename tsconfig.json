@@ -11,10 +11,9 @@
       "dom.iterable",
       "esnext"
     ],
-    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
+    "noFallthroughCasesInSwitch": false,
     "noImplicitAny": false,
     "noImplicitReturns": false,
     "noUncheckedIndexedAccess": false,
