@@ -1,40 +1,61 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-function expectText(text: string) {
-  const result = screen.getByText(text);
-  expect(result).toBeInTheDocument();
+async function expectText(text: string) {
+  const result = await screen.findAllByText(text, {exact: false});
+  expect(result[0]).toBeInTheDocument();
 }
 
-test('renders the manifest list', () => {
-  render(<App />);
+describe('renders the manifest list', () => {
 
-  // Name
-  expectText('720');
-  expectText('240');
-  expectText('380');
-  expectText('480');
-  expectText('1080');
-  
-  // Bandwidth
-  expectText('2149280');
-  expectText('246440');
-  expectText('460560');
-  expectText('836280');
-  expectText('6221600');
+  it('should include all NAME values', async () => {
+    render(<App />);
+    await expectText('720');
+    await expectText('240');
+    await expectText('380');
+    await expectText('480');
+    await expectText('1080');
+  });
 
-  // Codec
-  expectText('mp4a.40.2,avc1.64001f');
-  expectText('mp4a.40.5,avc1.42000d');
-  expectText('mp4a.40.5,avc1.420016');
-  expectText('mp4a.40.2,avc1.640028');
+  it('should include all BANDWIDTH values', async () => {
+    render(<App />);
+    await expectText('2149280');
+    await expectText('246440');
+    await expectText('460560');
+    await expectText('836280');
+    await expectText('6221600');
+  });
 
-  // Resolution
-  expectText('1280');
-  expectText('320');
-  expectText('512');
-  expectText('848');
-  expectText('1920');
+  it('should include all CODECS values', async () => {
+    render(<App />);
+    await expectText('mp4a.40.2,avc1.64001f');
+    await expectText('mp4a.40.5,avc1.42000d');
+    await expectText('mp4a.40.5,avc1.420016');
+    await expectText('mp4a.40.2,avc1.640028');
+  });
+
+  it('should include all RESOLUTION values', async () => {
+    render(<App />);
+    await expectText('1280');
+    await expectText('320');
+    await expectText('512');
+    await expectText('848');
+    await expectText('1920');
+  });
+
+  it('should include all URI values', async () => {
+    render(<App />);
+    await expectText('url_0/193039199_mp4_h264_aac_hd_7.m3u8');
+    await expectText('url_2/193039199_mp4_h264_aac_ld_7.m3u8');
+    await expectText('url_4/193039199_mp4_h264_aac_7.m3u8');
+    await expectText('url_6/193039199_mp4_h264_aac_hq_7.m3u8');
+    await expectText('url_8/193039199_mp4_h264_aac_fhd_7.m3u8');
+  });
+
+  it('should include the PROGRAM-ID value', async () => {
+    render(<App />);
+    await expectText('1');
+  });
 });
 
 /*
