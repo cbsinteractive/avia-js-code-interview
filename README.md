@@ -10,10 +10,13 @@ Code Interview for Avia JS
 ## Questions
 The following tasks are meant to be completed in a reasonable amount of time. The goal is to see how you approach a problem and how you structure your code. We are not looking for a perfect solution, but rather a solution that is well thought out and well structured. We are also not looking for a complete solution, but rather a solution that is complete enough to demonstrate your skills. Please feel free to ask any questions you may have.
 
-1. Write a utility function that loads the following HLS manifest and parses it into a list of objects describing each stream rendition:
+### Task 
+> Write a utility function that loads the following HLS manifest and parses it into a list of objects describing each stream rendition:
     - https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
     
-1. After completing step 1, using react, render each item in a HTML list in ascending order of bandwidth. Display the following properties for each item:
+
+### Bonus
+> After completing step 1, using react, render each item in a HTML list in ascending order of bandwidth. Display the following properties for each item:
     - url
     - program id
     - name
